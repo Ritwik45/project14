@@ -29,7 +29,9 @@ function setup() {
 }
 
 function draw() {
- background("background20.png");
+
+  text("Score :"+ score,200,200);
+ background(0);
   // moving ground
     scene.velocityX = -3 
 
@@ -52,15 +54,8 @@ function draw() {
   if (World.frameCount % 100 == 0) {
     if (select_balloon == 1) {
       redBalloon();
-    } else if(select_balloon == 2){
-      greenBalloon();
-    } else if(select_balloon == 3){
-      blueBalloon();
-    } else {
-      pinkBalloon();
     }
- 
-  text("Score : " + score,270,30);
+  }
   
   drawSprites();
 }
@@ -93,15 +88,16 @@ function blueBalloon() {
   blue.addImage(blue_balloonImage);
   blue.velocityX = 3;
   blue.lifetime = 150;
-  blue.scale = 0.1;
+  blue.scale = 0;
 }
 
 function greenBalloon() {
   //write code for spwaning green balloons
-  var green = createSprite(0,Math.round(random(20, 370)), 10, 10);blue.addImage(blue_balloonImage);
-  blue.velocityX = 3;
-  blue.lifetime = 150;
-  blue.scale = 0.1;
+  var green = createSprite(0,Math.round(random(20, 370)), 10, 10);
+  green.addImage(green_balloonImage);
+  green.velocityX = 3;
+  green.lifetime = 150;
+  green.scale = 0.1;
 }
 
 function pinkBalloon() {
@@ -111,5 +107,4 @@ function pinkBalloon() {
   pink.velocityX = 3;
   pink.lifetime = 150;
   pink.scale = 0.1;
-}
 }
